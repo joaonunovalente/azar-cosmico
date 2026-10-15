@@ -8,17 +8,17 @@ import { siteConfig } from '@/config/site';
 
 <section class="shell pt-14 pb-20 sm:pt-20 sm:pb-28 lg:pt-24" aria-labelledby="hero-title">
   {siteConfig.availability.enabled && (
-    <p class="rise inline-flex items-center gap-3 rounded-full border border-line bg-surface py-1.5 pr-4 pl-1.5 text-sm text-body shadow-[0_1px_2px_rgb(18_18_17/0.04)]">
+    <p class="rise inline-flex max-w-full items-center gap-3 rounded-full border border-line bg-surface py-2 pr-4 pl-2 text-left text-sm leading-snug text-body shadow-[0_1px_2px_rgb(18_18_17/0.04)] sm:py-1.5 sm:pl-1.5 sm:leading-normal">
       <Image
         src={cover}
         alt="Capa do podcast Azar Cósmico"
-        width={56}
-        height={56}
+        width={80}
+        height={80}
         loading="eager"
-        class="size-7 rounded-full object-cover object-top"
+        class="size-10 shrink-0 rounded-full object-cover object-top sm:size-7"
       />
-      <span class="availability-dot" aria-hidden="true" />
-      {siteConfig.availability.label}
+      <span class="availability-dot shrink-0" aria-hidden="true" />
+      <span class="text-pretty">{siteConfig.availability.label}</span>
     </p>
   )}
 
