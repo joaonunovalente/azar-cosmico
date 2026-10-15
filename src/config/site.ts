@@ -30,7 +30,7 @@ export const siteConfig = {
   /** The pill above the homepage headline. Set `enabled: false` to remove it. */
   availability: {
     enabled: true,
-    label: 'Novos episódios aos domingos, quinzenalmente',
+    label: 'Episódios quinzenais aos domingos',
   },
 
   /** The button at the end of the header and in the mobile menu. */
