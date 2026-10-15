@@ -105,21 +105,31 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
     if ((event.target as Element).closest('a')) menu.close();
   });
   matchMedia('(min-width: 48rem)').addEventListener('change', (event) => event.matches && menu?.close());
+
+  const header = document.querySelector('.site-header');
+  if (header) {
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    };
+    update();
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }, { passive: true });
+  }
 </script>
 
 <style>
-  @supports (animation-timeline: scroll()) {
-    .site-header {
-      animation: header-line linear both;
-      animation-timeline: scroll(root);
-      animation-range: 0 4rem;
-    }
+  .site-header {
+    transition: border-color 200ms ease;
   }
 
-  @keyframes header-line {
-    to {
-      border-bottom-color: var(--line-strong);
-    }
+  .site-header.is-scrolled {
+    border-bottom-color: var(--line-strong);
   }
 
   .nav-link {
