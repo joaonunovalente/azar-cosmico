@@ -1,7 +1,7 @@
 ---
 import Icon from '@/components/ui/Icon.astro';
 import PageHero from '@/components/ui/PageHero.astro';
-import { elsewhere, listen, platforms } from '@/config/ouvir';
+import { listen, platforms } from '@/config/ouvir';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { breadcrumbs } from '@/lib/schema';
 import { socialIcon } from '@/lib/socials';
@@ -37,22 +37,6 @@ import { socialIcon } from '@/lib/socials';
           >
             Abrir {platform.label}
             <Icon name="arrow-up-right" class="icon-nudge-diagonal size-4" />
-          </a>
-        </li>
-      ))}
-    </ul>
-  </section>
-
-  <section class="shell mt-16 sm:mt-24" aria-labelledby="elsewhere-title">
-    <h2 id="elsewhere-title" class="reveal text-section">
-      Nas redes sociais
-    </h2>
-    <ul class="mt-10 flex flex-wrap gap-3">
-      {elsewhere.map((link) => (
-        <li>
-          <a class="btn btn-ghost" href={link.href} rel="me noopener" target="_blank">
-            <Icon name={socialIcon(link.label)} class="size-4" />
-            {link.label}
           </a>
         </li>
       ))}
