@@ -23,7 +23,7 @@ export const siteConfig = {
   },
 
   developer: {
-    name: 'João Nuno Valente',
+    name: 'Valente',
     href: 'https://joaonunovalente.com',
   },
 
