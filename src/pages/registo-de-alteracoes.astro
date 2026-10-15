@@ -4,11 +4,12 @@ import { changelog } from '@/config/changelog';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { breadcrumbs } from '@/lib/schema';
 import { formatDate } from '@/lib/podcast';
+import Icon from '@/components/ui/Icon.astro';
 ---
 
 <BaseLayout
   title="Registo de Alterações"
-  description="Registo de alterações do site do Azar Cósmico: melhorias e páginas novas, das mais recentes às mais antigas."
+  description="Registo de alterações do site do Azar Cósmico: descrição das mudanças implementadas."
   noindex
   closing={false}
   structuredData={{
@@ -19,8 +20,21 @@ import { formatDate } from '@/lib/podcast';
     ]),
   }}
 >
-  <PageHero eyebrow="Legal" title="Registo de Alterações" text="O que mudou no site do Azar Cósmico." />
-
+  <PageHero eyebrow="Legal" title="Registo de Alterações">
+    <p class="rise mt-6 max-w-2xl text-lead text-body" style="--rise-step: 2">
+      O que mudou no site do Azar Cósmico. O{' '}
+      <a
+        class="link inline-flex items-center gap-1.5"
+        href="https://github.com/joaonunovalente/azar-cosmico"
+        target="_blank"
+        rel="noopener"
+      >
+        código-fonte
+        <Icon name="arrow-up-right" class="size-3.5" />
+      </a>{' '}
+      está disponível para consulta.
+    </p>
+  </PageHero>
   <section class="shell mt-16 sm:mt-20" aria-label="Registo de alterações">
     <ol class="grid gap-0">
       {changelog.map((entry) => (
