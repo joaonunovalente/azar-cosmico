@@ -1,0 +1,39 @@
+---
+import EpisodeCard from '@/components/podcast/EpisodeCard.astro';
+import PageHero from '@/components/ui/PageHero.astro';
+import Pagination from '@/components/ui/Pagination.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { breadcrumbs } from '@/lib/schema';
+import { episodesPageHref, episodesPageSize, getEpisodes } from '@/lib/podcast';
+
+const episodes = await getEpisodes();
+const total = Math.max(1, Math.ceil(episodes.length / episodesPageSize));
+---
+
+<BaseLayout
+  title="Episódios"
+  description="Todos os episódios do podcast Azar Cósmico: conversas descontraídas com convidados e episódios a solo sobre cinema, cultura, universidade e muito mais."
+  structuredData={{
+    '@context': 'https://schema.org',
+    ...breadcrumbs([
+      { name: 'Início', href: '/' },
+      { name: 'Episódios', href: '/episodios/' },
+    ]),
+  }}
+>
+  <PageHero
+    eyebrow={`${episodes.length} episódios`}
+    title="Conversas e episódios a solo para"
+    highlight="ouvir sem pressas."
+    text="Do episódio piloto às conversas mais recentes: carrega no play e entra no registo descontraído do Azar Cósmico."
+  />
+
+  <section class="shell mt-16 sm:mt-20" aria-label="Episódios">
+    <div class="grid gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+      {episodes.slice(0, episodesPageSize).map((episode, index) => (
+        <EpisodeCard episode={episode} eager={index < 2} headingLevel="h2" />
+      ))}
+    </div>
+    <Pagination current={1} total={total} hrefFor={episodesPageHref} />
+  </section>
+</BaseLayout>

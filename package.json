@@ -1,0 +1,54 @@
+{
+  "name": "azar-cosmico",
+  "description": "Site do podcast Azar Cósmico, de João Guilherme Matos — episódios, blog e vídeos.",
+  "type": "module",
+  "version": "2.0.0",
+  "author": "João Guilherme Matos",
+  "license": "SEE LICENSE IN LICENSE",
+  "private": true,
+  "keywords": [
+    "azar-cosmico",
+    "podcast",
+    "astro",
+    "comedia",
+    "cultura",
+    "tailwindcss"
+  ],
+  "homepage": "https://www.azarcosmico.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joaonunovalente/azar-cosmico.git"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "check": "astro check",
+    "release:check": "npm run check && npm run build && npm run format:check",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "overrides": {
+    "yaml": "^2.8.3"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^8.0.3",
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.8",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@types/node": "^24.13.6",
+    "prettier": "^3.9.9",
+    "prettier-plugin-astro": "^1.1.0",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.4"
+  }
+}

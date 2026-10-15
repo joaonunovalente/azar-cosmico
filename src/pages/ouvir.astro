@@ -1,0 +1,61 @@
+---
+import Icon from '@/components/ui/Icon.astro';
+import PageHero from '@/components/ui/PageHero.astro';
+import { elsewhere, listen, platforms } from '@/config/ouvir';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { breadcrumbs } from '@/lib/schema';
+import { socialIcon } from '@/lib/socials';
+---
+
+<BaseLayout
+  title="Ouvir e subscrever"
+  description="Subscreve o podcast Azar Cósmico no Spotify, Apple Podcasts, YouTube ou via RSS. Novos episódios aos domingos, quinzenalmente."
+  structuredData={{
+    '@context': 'https://schema.org',
+    ...breadcrumbs([
+      { name: 'Início', href: '/' },
+      { name: 'Ouvir', href: '/ouvir/' },
+    ]),
+  }}
+>
+  <PageHero eyebrow={listen.eyebrow} title={listen.title} highlight={listen.highlight} text={listen.text} />
+
+  <section class="shell mt-16 sm:mt-20" aria-label="Plataformas">
+    <ul class="grid gap-5 sm:grid-cols-2">
+      {platforms.map((platform) => (
+        <li class="reveal rounded-card border border-line bg-surface p-7 sm:p-8">
+          <span class="grid size-11 place-items-center rounded-xl bg-accent text-on-accent">
+            <Icon name={socialIcon(platform.label)} class="size-5" />
+          </span>
+          <h2 class="mt-10 text-title">{platform.label}</h2>
+          <p class="mt-3 text-muted">{platform.text}</p>
+          <a
+            class="btn btn-ghost btn-sm mt-6"
+            href={platform.href}
+            rel="noopener"
+            target={platform.href.startsWith('http') ? '_blank' : undefined}
+          >
+            Abrir {platform.label}
+            <Icon name="arrow-up-right" class="icon-nudge-diagonal size-4" />
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="shell mt-16 sm:mt-24" aria-labelledby="elsewhere-title">
+    <h2 id="elsewhere-title" class="reveal text-section">
+      Nas redes sociais
+    </h2>
+    <ul class="mt-10 flex flex-wrap gap-3">
+      {elsewhere.map((link) => (
+        <li>
+          <a class="btn btn-ghost" href={link.href} rel="me noopener" target="_blank">
+            <Icon name={socialIcon(link.label)} class="size-4" />
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

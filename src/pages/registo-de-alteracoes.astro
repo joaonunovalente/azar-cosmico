@@ -1,0 +1,42 @@
+---
+import PageHero from '@/components/ui/PageHero.astro';
+import { changelog } from '@/config/changelog';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { breadcrumbs } from '@/lib/schema';
+import { formatDate } from '@/lib/podcast';
+---
+
+<BaseLayout
+  title="Registo de Alterações"
+  description="Registo de alterações do site do Azar Cósmico: melhorias e páginas novas, das mais recentes às mais antigas."
+  noindex
+  closing={false}
+  structuredData={{
+    '@context': 'https://schema.org',
+    ...breadcrumbs([
+      { name: 'Início', href: '/' },
+      { name: 'Registo de Alterações', href: '/registo-de-alteracoes/' },
+    ]),
+  }}
+>
+  <PageHero eyebrow="Legal" title="Registo de Alterações" text="O que mudou no site do Azar Cósmico." />
+
+  <section class="shell mt-16 sm:mt-20" aria-label="Registo de alterações">
+    <ol class="grid gap-0">
+      {changelog.map((entry) => (
+        <li class="reveal grid gap-3 border-t border-line py-10 lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-16">
+          <div class="grid content-start gap-2 self-start">
+            <h2 class="text-title">{entry.version}</h2>
+            <p class="text-sm text-muted">
+              <time datetime={entry.date}>{formatDate(entry.date)}</time>
+            </p>
+          </div>
+          <div class="max-w-3xl">
+            <h3 class="text-title">{entry.title}</h3>
+            <p class="mt-3 text-lead text-body">{entry.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+</BaseLayout>

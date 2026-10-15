@@ -1,0 +1,84 @@
+---
+import Icon from '@/components/ui/Icon.astro';
+import { formatDate, postHref, type Post } from '@/lib/podcast';
+
+interface Props {
+  post: Post;
+  eager?: boolean;
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { post, eager = false, headingLevel: Heading = 'h3' } = Astro.props;
+const { title, description, date, image } = post.data;
+---
+
+<article class="post-card reveal relative">
+  <div class="relative aspect-16/9 overflow-hidden rounded-card border border-line bg-surface">
+    {image ? (
+      <img
+        src={image}
+        alt=""
+        loading={eager ? 'eager' : 'lazy'}
+        fetchpriority={eager ? 'high' : 'auto'}
+        class="post-shot h-full w-full object-cover"
+      />
+    ) : (
+      <div class="grid h-full w-full place-items-center text-muted" aria-hidden="true">
+        <Icon name="pen-tool" class="size-10" />
+      </div>
+    )}
+    <span
+      class="post-badge absolute top-5 right-5 grid size-11 place-items-center rounded-full bg-inverse text-on-inverse"
+      aria-hidden="true"
+    >
+      <Icon name="arrow-up-right" class="size-5" />
+    </span>
+  </div>
+  <div class="mt-5 flex items-center gap-3 text-sm text-muted">
+    <time datetime={date}>{formatDate(date)}</time>
+  </div>
+  <Heading class="mt-2 text-title">
+    <a href={postHref(post)} class="after:absolute after:inset-0 focus-visible:outline-none">
+      {title}
+    </a>
+  </Heading>
+  <p class="mt-2 line-clamp-2 text-muted">{description}</p>
+</article>
+
+<style>
+  .post-card:has(a:focus-visible) {
+    outline: 2px solid var(--ink);
+    outline-offset: 8px;
+    border-radius: var(--radius-card);
+  }
+
+  .post-badge {
+    opacity: 0;
+    scale: 0.6;
+  }
+
+  .post-card:hover .post-badge,
+  .post-card:has(a:focus-visible) .post-badge {
+    opacity: 1;
+    scale: 1;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .post-shot {
+      transform-origin: 0 0;
+      transition: scale 700ms var(--ease-out-expo);
+    }
+
+    .post-badge {
+      transition:
+        opacity 250ms ease,
+        scale 450ms var(--ease-out-expo);
+    }
+
+    @media (hover: hover) {
+      .post-card:hover .post-shot {
+        scale: 1.04;
+      }
+    }
+  }
+</style>

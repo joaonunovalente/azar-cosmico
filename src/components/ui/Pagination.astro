@@ -1,0 +1,108 @@
+---
+import Icon from '@/components/ui/Icon.astro';
+
+interface Props {
+  current: number;
+  total: number;
+  hrefFor: (page: number) => string;
+}
+
+const { current, total, hrefFor } = Astro.props;
+
+function visiblePages(currentPage: number, totalPages: number): Array<number | 'ellipsis-start' | 'ellipsis-end'> {
+  if (totalPages <= 7) {
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
+  }
+
+  const keep = new Set<number>([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
+  const ordered = [...keep].filter((page) => page >= 1 && page <= totalPages).sort((a, b) => a - b);
+
+  const result: Array<number | 'ellipsis-start' | 'ellipsis-end'> = [];
+  let previous = 0;
+  for (const page of ordered) {
+    if (previous !== 0 && page - previous > 1) {
+      result.push(previous === 1 ? 'ellipsis-start' : 'ellipsis-end');
+    }
+    result.push(page);
+    previous = page;
+  }
+  return result;
+}
+
+const pages = visiblePages(current, total);
+---
+
+{total > 1 && (
+  <nav aria-label="Paginação" class="mt-16 flex flex-wrap items-center justify-center gap-2">
+    {current > 1 && (
+      <a class="page-link" href={hrefFor(current - 1)} rel="prev">
+        <Icon name="arrow-left" class="size-4" />
+        <span class="sr-only">Página anterior</span>
+      </a>
+    )}
+    <span class="page-status inline-flex items-center sm:hidden" aria-hidden="true">
+      Página {current} de {total}
+    </span>
+    <span class="hidden items-center gap-2 sm:flex">
+      {pages.map((page) =>
+        typeof page === 'number' ? (
+          <a class="page-link" href={hrefFor(page)} aria-current={page === current ? 'page' : undefined}>
+            <span class="sr-only">Página </span>
+            {page}
+          </a>
+        ) : (
+          <span class="page-ellipsis" aria-hidden="true">
+            …
+          </span>
+        ),
+      )}
+    </span>
+    {current < total && (
+      <a class="page-link" href={hrefFor(current + 1)} rel="next">
+        <Icon name="arrow-right" class="size-4" />
+        <span class="sr-only">Página seguinte</span>
+      </a>
+    )}
+  </nav>
+)}
+
+<style>
+  .page-link {
+    display: grid;
+    place-items: center;
+    min-width: 2.75rem;
+    height: 2.75rem;
+    padding-inline: 0.75rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-weight: 500;
+    transition:
+      border-color 160ms ease,
+      background-color 160ms ease;
+  }
+
+  .page-link:hover {
+    border-color: var(--ink);
+  }
+
+  .page-link[aria-current] {
+    border-color: var(--inverse);
+    background: var(--inverse);
+    color: var(--on-inverse);
+  }
+
+  .page-status {
+    min-height: 2.75rem;
+    padding-inline: 0.5rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+  }
+
+  .page-ellipsis {
+    display: grid;
+    place-items: center;
+    min-width: 1.5rem;
+    height: 2.75rem;
+    opacity: 0.7;
+  }
+</style>

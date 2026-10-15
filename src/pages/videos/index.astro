@@ -1,0 +1,39 @@
+---
+import VideoCard from '@/components/podcast/VideoCard.astro';
+import PageHero from '@/components/ui/PageHero.astro';
+import Pagination from '@/components/ui/Pagination.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { breadcrumbs } from '@/lib/schema';
+import { getVideos, videosPageHref, videosPageSize } from '@/lib/podcast';
+
+const videos = await getVideos();
+const total = Math.max(1, Math.ceil(videos.length / videosPageSize));
+---
+
+<BaseLayout
+  title="Vídeos"
+  description="Clips das conversas e sketches do Azar Cósmico no YouTube: os melhores momentos dos episódios em vídeo."
+  structuredData={{
+    '@context': 'https://schema.org',
+    ...breadcrumbs([
+      { name: 'Início', href: '/' },
+      { name: 'Vídeos', href: '/videos/' },
+    ]),
+  }}
+>
+  <PageHero
+    eyebrow={`${videos.length} vídeos`}
+    title="Os melhores momentos em"
+    highlight="vídeo."
+    text="Clips retirados dos episódios do podcast: cinema, atualidade, universidade e o absurdo do quotidiano. Vê no YouTube."
+  />
+
+  <section class="shell mt-16 sm:mt-20" aria-label="Vídeos">
+    <div class="grid gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+      {videos.slice(0, videosPageSize).map((video, index) => (
+        <VideoCard video={video} eager={index < 2} headingLevel="h2" />
+      ))}
+    </div>
+    <Pagination current={1} total={total} hrefFor={videosPageHref} />
+  </section>
+</BaseLayout>

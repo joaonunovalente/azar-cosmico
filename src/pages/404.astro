@@ -1,0 +1,35 @@
+---
+import Icon from '@/components/ui/Icon.astro';
+import { navigation } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Página não encontrada"
+  description="A página que procura não foi encontrada."
+  noindex
+  closing={false}
+>
+  <section class="shell grid min-h-[70vh] place-items-center py-20 text-center">
+    <div>
+      <p class="rise font-serif text-[clamp(6rem,4rem+10vw,12rem)] leading-none text-muted italic">404</p>
+      <h1 class="rise mt-4 text-section" style="--rise-step: 1">
+        Esta página seguiu outro caminho.
+      </h1>
+      <p class="rise mx-auto mt-5 max-w-md text-lead text-muted" style="--rise-step: 2">
+        A ligação pode estar desatualizada. Experimenta uma destas opções.
+      </p>
+      <div class="rise mt-10 flex flex-wrap justify-center gap-3" style="--rise-step: 3">
+        <a class="btn btn-primary" href="/">
+          <Icon name="arrow-left" class="size-4" />
+          Voltar ao início
+        </a>
+        {navigation.map((link) => (
+          <a class="btn btn-ghost" href={link.href}>
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

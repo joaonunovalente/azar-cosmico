@@ -1,0 +1,86 @@
+---
+import Icon from '@/components/ui/Icon.astro';
+import { formatDate, youtubeUrl, type Video } from '@/lib/podcast';
+
+interface Props {
+  video: Video;
+  eager?: boolean;
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { video, eager = false, headingLevel: Heading = 'h3' } = Astro.props;
+const { title, description, date, youtubeId, thumbnail } = video.data;
+const href = youtubeUrl(youtubeId);
+---
+
+<article class="video-card reveal relative">
+  <div class="relative aspect-16/9 overflow-hidden rounded-card border border-line bg-surface">
+    {thumbnail ? (
+      <img
+        src={thumbnail}
+        alt=""
+        loading={eager ? 'eager' : 'lazy'}
+        fetchpriority={eager ? 'high' : 'auto'}
+        class="video-shot h-full w-full object-cover"
+      />
+    ) : (
+      <div class="grid h-full w-full place-items-center text-muted" aria-hidden="true">
+        <Icon name="arrow-up-right" class="size-10" />
+      </div>
+    )}
+    <span
+      class="video-badge absolute top-5 right-5 grid size-11 place-items-center rounded-full bg-inverse text-on-inverse"
+      aria-hidden="true"
+    >
+      <Icon name="arrow-up-right" class="size-5" />
+    </span>
+  </div>
+  <div class="mt-5 flex items-center gap-3 text-sm text-muted">
+    <time datetime={date}>{formatDate(date)}</time>
+  </div>
+  <Heading class="mt-2 text-title">
+    <a href={href} class="after:absolute after:inset-0 focus-visible:outline-none" rel="noopener" target="_blank">
+      {title}
+      <span class="sr-only">(abre o YouTube)</span>
+    </a>
+  </Heading>
+  <p class="mt-2 line-clamp-2 text-muted">{description}</p>
+</article>
+
+<style>
+  .video-card:has(a:focus-visible) {
+    outline: 2px solid var(--ink);
+    outline-offset: 8px;
+    border-radius: var(--radius-card);
+  }
+
+  .video-badge {
+    opacity: 0;
+    scale: 0.6;
+  }
+
+  .video-card:hover .video-badge,
+  .video-card:has(a:focus-visible) .video-badge {
+    opacity: 1;
+    scale: 1;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .video-shot {
+      transform-origin: 0 0;
+      transition: scale 700ms var(--ease-out-expo);
+    }
+
+    .video-badge {
+      transition:
+        opacity 250ms ease,
+        scale 450ms var(--ease-out-expo);
+    }
+
+    @media (hover: hover) {
+      .video-card:hover .video-shot {
+        scale: 1.04;
+      }
+    }
+  }
+</style>

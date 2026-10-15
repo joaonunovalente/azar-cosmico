@@ -1,0 +1,98 @@
+---
+import { render } from 'astro:content';
+import PostCard from '@/components/podcast/PostCard.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { postSchema } from '@/lib/schema';
+import { formatDate, getPosts, type Post } from '@/lib/podcast';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post, index) => ({
+    params: { slug: post.id },
+    props: {
+      post,
+      related: posts.filter((_, i) => i !== index).slice(0, 2),
+    },
+  }));
+}
+
+interface Props {
+  post: Post;
+  related: Post[];
+}
+
+const { post, related } = Astro.props;
+const { title, description, date, image } = post.data;
+const { Content } = await render(post);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={image || undefined}
+  imageAlt={title}
+  type="article"
+  structuredData={postSchema(post)}
+>
+  <article>
+    <header class="shell pt-12 sm:pt-16">
+      <nav aria-label="Navegação estrutural" class="rise">
+        <ol class="flex items-center gap-2 text-sm text-muted">
+          <li>
+            <a class="hover:text-ink" href="/blog/">
+              Blog
+            </a>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li>
+            <span aria-current="page" class="text-ink">
+              Crónica
+            </span>
+          </li>
+        </ol>
+      </nav>
+      <h1 class="rise mt-8 max-w-[22ch] text-headline" style="--rise-step: 1">
+        {title}
+      </h1>
+      <p class="rise mt-6 max-w-2xl text-lead text-body" style="--rise-step: 2">
+        {description}
+      </p>
+
+      <div class="rise mt-8 flex flex-wrap items-center gap-4 text-sm text-muted" style="--rise-step: 3">
+        <time datetime={date}>{formatDate(date)}</time>
+        <span aria-hidden="true">·</span>
+        <span>Por João Guilherme Matos</span>
+      </div>
+    </header>
+
+    {image && (
+      <div class="shell mt-12 sm:mt-16">
+        <img
+          src={image}
+          alt=""
+          loading="lazy"
+          class="aspect-16/9 w-full rounded-card border border-line object-cover"
+        />
+      </div>
+    )}
+
+    <div class="shell mt-12 sm:mt-16">
+      <div class="prose max-w-3xl">
+        <Content />
+      </div>
+    </div>
+
+    {related.length > 0 && (
+      <section class="shell mt-16 sm:mt-24" aria-labelledby="related-title">
+        <h2 id="related-title" class="reveal text-section">
+          Continua a ler
+        </h2>
+        <div class="mt-10 grid gap-x-8 gap-y-16 md:grid-cols-2">
+          {related.map((item) => (
+            <PostCard post={item} />
+          ))}
+        </div>
+      </section>
+    )}
+  </article>
+</BaseLayout>

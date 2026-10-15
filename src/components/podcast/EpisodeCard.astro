@@ -1,0 +1,93 @@
+---
+import Icon from '@/components/ui/Icon.astro';
+import { episodeHref, formatDate, formatDuration, type Episode } from '@/lib/podcast';
+
+interface Props {
+  episode: Episode;
+  /** The first cards on a page load eagerly. */
+  eager?: boolean;
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { episode, eager = false, headingLevel: Heading = 'h3' } = Astro.props;
+const { title, description, date, episodeNumber, duration, image } = episode.data;
+---
+
+<article class="episode-card reveal relative">
+  <div class="relative aspect-16/9 overflow-hidden rounded-card border border-line bg-surface">
+    {image ? (
+      <img
+        src={image}
+        alt=""
+        loading={eager ? 'eager' : 'lazy'}
+        fetchpriority={eager ? 'high' : 'auto'}
+        class="episode-shot h-full w-full object-cover"
+      />
+    ) : (
+      <div class="grid h-full w-full place-items-center text-muted" aria-hidden="true">
+        <Icon name="quote" class="size-10" />
+      </div>
+    )}
+    <span
+      class="episode-badge absolute top-5 right-5 grid size-11 place-items-center rounded-full bg-inverse text-on-inverse"
+      aria-hidden="true"
+    >
+      <Icon name="arrow-up-right" class="size-5" />
+    </span>
+  </div>
+  <div class="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
+    <span class="font-medium text-ink">EP {episodeNumber}</span>
+    <span aria-hidden="true">·</span>
+    <time datetime={date}>{formatDate(date)}</time>
+    {duration && (
+      <>
+        <span aria-hidden="true">·</span>
+        <span>{formatDuration(duration)}</span>
+      </>
+    )}
+  </div>
+  <Heading class="mt-2 text-title">
+    <a href={episodeHref(episode)} class="after:absolute after:inset-0 focus-visible:outline-none">
+      {title}
+    </a>
+  </Heading>
+  <p class="mt-2 line-clamp-2 text-muted">{description}</p>
+</article>
+
+<style>
+  .episode-card:has(a:focus-visible) {
+    outline: 2px solid var(--ink);
+    outline-offset: 8px;
+    border-radius: var(--radius-card);
+  }
+
+  .episode-badge {
+    opacity: 0;
+    scale: 0.6;
+  }
+
+  .episode-card:hover .episode-badge,
+  .episode-card:has(a:focus-visible) .episode-badge {
+    opacity: 1;
+    scale: 1;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .episode-shot {
+      transform-origin: 0 0;
+      transition: scale 700ms var(--ease-out-expo);
+    }
+
+    .episode-badge {
+      transition:
+        opacity 250ms ease,
+        scale 450ms var(--ease-out-expo);
+    }
+
+    @media (hover: hover) {
+      .episode-card:hover .episode-shot {
+        scale: 1.04;
+      }
+    }
+  }
+</style>

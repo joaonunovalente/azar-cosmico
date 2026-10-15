@@ -1,0 +1,53 @@
+---
+import Hero from '@/components/home/Hero.astro';
+import Services from '@/components/home/Services.astro';
+import EpisodeCard from '@/components/podcast/EpisodeCard.astro';
+import PostCard from '@/components/podcast/PostCard.astro';
+import Icon from '@/components/ui/Icon.astro';
+import SectionHead from '@/components/ui/SectionHead.astro';
+import { episodes as episodesConfig, posts as postsConfig } from '@/config/home';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getEpisodes, getPosts } from '@/lib/podcast';
+
+const episodes = (await getEpisodes()).slice(0, episodesConfig.limit);
+const posts = (await getPosts()).slice(0, postsConfig.limit);
+---
+
+<BaseLayout>
+  <Hero />
+
+  <section id="episodios" class="shell" aria-labelledby="episodios-title">
+    <SectionHead
+      id="episodios-title"
+      eyebrow={episodesConfig.eyebrow}
+      title={episodesConfig.title}
+      text={episodesConfig.text}
+    >
+      <a class="btn btn-ghost" href="/episodios/">
+        Todos os episódios
+        <Icon name="arrow-right" class="icon-nudge size-4" />
+      </a>
+    </SectionHead>
+    <div class="mt-12 grid gap-x-8 gap-y-16 md:grid-cols-2">
+      {episodes.map((episode, index) => (
+        <EpisodeCard episode={episode} eager={index < 2} />
+      ))}
+    </div>
+  </section>
+
+  <section id="blog" class="shell mt-28 sm:mt-36" aria-labelledby="blog-title">
+    <SectionHead id="blog-title" eyebrow={postsConfig.eyebrow} title={postsConfig.title} text={postsConfig.text}>
+      <a class="btn btn-ghost" href="/blog/">
+        Todas as crónicas
+        <Icon name="arrow-right" class="icon-nudge size-4" />
+      </a>
+    </SectionHead>
+    <div class="mt-12 grid gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post, index) => (
+        <PostCard post={post} eager={index < 2} />
+      ))}
+    </div>
+  </section>
+
+  <Services />
+</BaseLayout>

@@ -1,0 +1,50 @@
+# Copyright and Licensing
+
+Copyright (c) 2026 João Guilherme Matos. All rights reserved.
+
+## Azar Cósmico — Proprietary Content and Original Work
+
+Except for third-party components and materials expressly identified below or otherwise accompanied by their own license, the original source code, design, texts, episodes, images, videos, and other original materials of Azar Cósmico are protected by copyright and are not released under an open-source license.
+
+All rights not expressly granted are reserved. Reproduction, modification, redistribution, publication, display, commercial exploitation, or other use of these materials, in whole or in part, requires prior written permission from João Guilherme Matos, except where otherwise permitted by applicable law.
+
+This notice applies to the original work covered by it and does not revoke or alter licenses previously granted for earlier versions. Copies of earlier versions distributed under the MIT License remain subject to the terms of that license.
+
+## Third-Party Components
+
+### Maria Theme
+
+This project incorporates and is derived from the Maria theme, Copyright (c) 2026 Andrei Alba, originally distributed under the MIT License.
+
+The original MIT License applies to the portions of this project covered by that license. Its copyright notice, permission notice, and disclaimer are reproduced below. The inclusion of this license does not grant additional rights to the original work of Azar Cósmico.
+
+#### MIT License
+
+Copyright (c) 2026 Andrei Alba
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+### Third-Party Assets
+
+The following assets retain their respective licenses:
+
+- **Hanken Grotesk** (`public/fonts/hanken-grotesk`) — SIL Open Font License 1.1. See `public/fonts/hanken-grotesk/OFL.txt`.
+- **Instrument Serif** (`public/fonts/instrument-serif`) — SIL Open Font License 1.1. See `public/fonts/instrument-serif/OFL.txt`.
+- **Lucide Icons** (`src/icons/lucide`) — ISC License. See `src/icons/lucide/LICENSE`.
+- **Bootstrap Icons** (`src/icons/bootstrap`) — MIT License. See `src/icons/bootstrap/LICENSE.md`.

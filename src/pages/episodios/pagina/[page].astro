@@ -1,0 +1,45 @@
+---
+import EpisodeCard from '@/components/podcast/EpisodeCard.astro';
+import PageHero from '@/components/ui/PageHero.astro';
+import Pagination from '@/components/ui/Pagination.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { episodesPageHref, episodesPageSize, getEpisodes } from '@/lib/podcast';
+
+export async function getStaticPaths() {
+  const episodes = await getEpisodes();
+  const total = Math.ceil(episodes.length / episodesPageSize);
+
+  return Array.from({ length: Math.max(total - 1, 0) }, (_, index) => {
+    const current = index + 2;
+    return {
+      params: { page: String(current) },
+      props: {
+        current,
+        total,
+        episodes: episodes.slice((current - 1) * episodesPageSize, current * episodesPageSize),
+      },
+    };
+  });
+}
+
+const { episodes, current, total } = Astro.props;
+const title = `Episódios, página ${current} de ${total}`;
+---
+
+<BaseLayout
+  title={title}
+  description={`Arquivo de episódios do podcast Azar Cósmico, página ${current} de ${total}.`}
+  prevUrl={current > 1 ? episodesPageHref(current - 1) : undefined}
+  nextUrl={current < total ? episodesPageHref(current + 1) : undefined}
+>
+  <PageHero eyebrow={`Arquivo, página ${current}`} title="Todos os episódios do" highlight="Azar Cósmico." />
+
+  <section class="shell mt-16 sm:mt-20" aria-label="Episódios">
+    <div class="grid gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+      {episodes.map((episode) => (
+        <EpisodeCard episode={episode} headingLevel="h2" />
+      ))}
+    </div>
+    <Pagination current={current} total={total} hrefFor={episodesPageHref} />
+  </section>
+</BaseLayout>

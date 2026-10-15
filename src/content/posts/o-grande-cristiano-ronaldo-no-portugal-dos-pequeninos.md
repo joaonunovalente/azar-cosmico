@@ -1,0 +1,22 @@
+---
+title: "O Grande Cristiano Ronaldo no Portugal dos Pequeninos"
+description: "Antes do apito inicial deste texto, talvez faça sentido realçar que o meu conhecimento futebolístico é bastante nebuloso. Confesso que apenas liguei ao que se passava dentro das quatro linhas..."
+date: "2022-12-11"
+image: "https://s3.us-west-1.amazonaws.com/redwood-labs/showpage/uploads/images/c9d8022d-5d03-421e-964d-33a6a4338886.png"
+---
+
+Antes do apito inicial deste texto, talvez faça sentido realçar que o meu conhecimento futebolístico é bastante nebuloso. Confesso que apenas liguei ao que se passava dentro das quatro linhas entre 2010 e 2016, curiosamente. E fi-lo somente durante este período por pura necessidade, aliás. Eu precisava de estar a par dos melhores plantéis para poder dar as valentes coças que dei aos meus amigos na PlayStation, enquanto jogávamos FIFA. Como o leitor adivinhou, agora já não jogo FIFA e também já não tenho amigos. Mas ainda dou coças.
+
+Ultimamente, só se fala de Cristiano Ronaldo. Fala-se tanto de Cristiano Ronaldo que até eu me senti compelido a escrever sobre Cristiano Ronaldo, abordando também o fenómeno das pessoas que só falam de Cristiano Ronaldo, ultimamente. Escasseiam os adjetivos para definir com exatidão a importância de Ronaldo na Seleção portuguesa. O homem tem a lombar lesionada para a vida, tal foi o peso de levar Portugal às costas durante anos. De notar que Cristiano fez balançar as redes mais de 115 vezes com a camisola das quinas.
+
+No entanto, mal surge um Cristiano de 37 anos com sinais de fragilidade, demasiados adeptos rapidamente se tornam abutres implacáveis nas críticas. Já ouço que Ronaldo está acabado desde 2017. Temo apenas que as más-línguas se tornem numa profecia que se cumpre a si mesma. Quem defende que o capitão da Seleção deveria encarar o início do fim de uma era monumental com graciosidade e naturalidade são as mesmas pessoas que têm um esgotamento nervoso quando observam uma nova ruga no espelho ou que fritam a pipoca quando vislumbram o primeiro cabelo branco. São as mesmas pessoas que tornaram a vitória coletiva de Portugal por 6-1 frente à Suíça numa derrota pessoal de Ronaldo.
+
+Como em tudo na vida, o contexto é muito importante. A quebra de rendimento de Ronaldo ocorre quando o mesmo perde um filho, não faz pré-época no Manchester United e é queimado no clube que outrora o impulsionou. As comparações com Messi são irrelevantes, pois para além do argentino ter feito pré-época, ninguém sabe quanto vale o Messi depois de perder um filho.
+
+Tudo isto é duro. É quase tão duro como o cabelo besuntado com Linic que Cristiano jura que sentiu a raspar na bola para golo, ainda na fase de grupos, frente ao Uruguai. Esta situação gera, na minha humilde opinião, um debate de índole filosófica. Mesmo que Ronaldo não tenha tocado na bola, poder-se-á argumentar que foi o seu salto que impediu o guarda-redes de cumprir eficientemente a sua função. Por outras palavras, se Ronaldo não puxa da sua impulsão, o marcador não é inaugurado. O golo pertencerá, inequivocamente, à última pessoa que toca na bola ou a quem efetivamente faz com que o guardião da baliza fique atarantado, recorrendo a truques mentais Jedi ? Trata-se de uma questão para Stuart Milhas responder, filósofo dos relvados que ainda não adotou o sistema métrico.
+
+Os portugueses sofrem de sebastianismo crónico. Estamos sempre à espera que surja uma espécie de figura messiânica que nos salve, mesmo quando não existe nevoeiro algum. Então com Marrocos ainda mais expectativa havia que Dom Sebastião nos fosse devolvido. Contudo, o engenheiro Fernando decidiu que o monarca ia ficar sentadinho no banco. Quando Ronaldo entrou, os defesas marroquinos sentiram mais pressão, mas Bono, guarda-redes de Marrocos e vocalista dos U2, revelou-se uma autêntica muralha impenetrável. Consegui apurar que Marrocos vai a pé para as meias-finais, porque o autocarro ficou estacionado frente à baliza.
+
+O engenheiro Fernando cumpriu o prazo em 2016. Porém, talvez fosse agora oportuno oferecer o cargo a um certo ‘botânico’ com sotaque madeirense. Dom Afonso Henriques não andou a bater na mãe para este tipo de desfecho. Nem que seja em 2050, no primeiro campeonato do mundo disputado entre humanos e robots, imagino Cristiano Ronaldo a marcar uma grande penalidade com um andarilho. Custe o que custar.
+
+Se apreciaste esta crónica, podes apoiar o meu trabalho partilhando-a com um amigo que eu agradeço! Eis o mais recente episódio do meu podcast:

@@ -1,0 +1,144 @@
+---
+import { render } from 'astro:content';
+import Icon from '@/components/ui/Icon.astro';
+import EpisodeCard from '@/components/podcast/EpisodeCard.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { episodeSchema } from '@/lib/schema';
+import { episodeHref, formatDate, formatDuration, getEpisodes, type Episode } from '@/lib/podcast';
+
+export async function getStaticPaths() {
+  const episodes = await getEpisodes();
+  return episodes.map((episode, index) => ({
+    params: { slug: episode.id },
+    props: {
+      episode,
+      prev: episodes[(index - 1 + episodes.length) % episodes.length],
+      next: episodes[(index + 1) % episodes.length],
+    },
+  }));
+}
+
+interface Props {
+  episode: Episode;
+  prev: Episode;
+  next: Episode;
+}
+
+const { episode, prev, next } = Astro.props;
+const { title, description, date, episodeNumber, season, duration, audioUrl, image } = episode.data;
+const { Content } = await render(episode);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={image || undefined}
+  imageAlt={title}
+  type="article"
+  structuredData={episodeSchema(episode)}
+>
+  <article>
+    <header class="shell pt-12 sm:pt-16">
+      <nav aria-label="Navegação estrutural" class="rise">
+        <ol class="flex items-center gap-2 text-sm text-muted">
+          <li>
+            <a class="hover:text-ink" href="/episodios/">
+              Episódios
+            </a>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li>
+            <span aria-current="page" class="text-ink">
+              EP {episodeNumber}
+            </span>
+          </li>
+        </ol>
+      </nav>
+      <h1 class="rise mt-8 max-w-[22ch] text-headline" style="--rise-step: 1">
+        {title}
+      </h1>
+      <p class="rise mt-6 max-w-2xl text-lead text-body" style="--rise-step: 2">
+        {description}
+      </p>
+
+      <dl class="rise mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted" style="--rise-step: 3">
+        <div class="flex gap-2">
+          <dt>Publicado:</dt>
+          <dd>
+            <time datetime={date}>{formatDate(date)}</time>
+          </dd>
+        </div>
+        {duration && (
+          <div class="flex gap-2">
+            <dt>Duração:</dt>
+            <dd>{formatDuration(duration)}</dd>
+          </div>
+        )}
+        <div class="flex gap-2">
+          <dt>Temporada:</dt>
+          <dd>{season}</dd>
+        </div>
+      </dl>
+
+      <div class="rise mt-8 max-w-3xl rounded-card border border-line bg-surface p-4 sm:p-5" style="--rise-step: 3">
+        <audio class="w-full" controls preload="none" src={audioUrl}>
+          O teu navegador não suporta áudio. Ouve o episódio
+          <a href={audioUrl}>neste link</a>.
+        </audio>
+      </div>
+    </header>
+
+    {image && (
+      <div class="shell mt-12 sm:mt-16">
+        <img
+          src={image}
+          alt=""
+          loading="lazy"
+          class="aspect-16/9 w-full rounded-card border border-line object-cover"
+        />
+      </div>
+    )}
+
+    <div class="shell mt-12 sm:mt-16">
+      <section aria-labelledby="episode-description-title" class="max-w-3xl">
+        <h2 id="episode-description-title" class="text-section">
+          Descrição do episódio
+        </h2>
+        <div class="prose mt-6">
+          <Content />
+        </div>
+      </section>
+    </div>
+
+    <nav class="shell mt-16 grid gap-4 sm:grid-cols-2 sm:mt-24" aria-label="Mais episódios">
+      {[
+        { item: prev, label: 'Episódio mais recente', rel: 'prev' },
+        { item: next, label: 'Episódio mais antigo', rel: 'next' },
+      ].map(
+        ({ item, label, rel }) =>
+          item.id !== episode.id && (
+            <a
+              href={episodeHref(item)}
+              rel={rel}
+              class="group flex items-center justify-between gap-4 rounded-card border border-line bg-surface p-6"
+            >
+              <span>
+                <span class="block text-sm text-muted">{label}</span>
+                <span class="mt-1 block font-medium group-hover:underline">{item.data.title}</span>
+              </span>
+              <Icon name="arrow-right" class="icon-nudge size-5 shrink-0" />
+            </a>
+          ),
+      )}
+    </nav>
+
+    <section class="shell mt-16 sm:mt-24" aria-labelledby="more-title">
+      <h2 id="more-title" class="reveal text-section">
+        Continua a ouvir
+      </h2>
+      <div class="mt-10 grid gap-x-8 gap-y-16 md:grid-cols-2">
+        <EpisodeCard episode={next.id !== episode.id ? next : prev} />
+      </div>
+    </section>
+  </article>
+</BaseLayout>

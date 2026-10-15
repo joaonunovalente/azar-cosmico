@@ -1,0 +1,25 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = 'size-7' } = Astro.props;
+---
+
+<svg class:list={['block shrink-0', className]} viewBox="0 0 32 32" fill="none" aria-hidden="true">
+  <rect
+    x="0.5"
+    y="0.5"
+    width="31"
+    height="31"
+    rx="8.5"
+    fill="var(--night)"
+    stroke="var(--line-strong)"
+    stroke-width="1"
+  ></rect>
+  <path
+    d="M14.5 6.5Q15.7 13.3 22.5 14.5Q15.7 15.7 14.5 22.5Q13.3 15.7 6.5 14.5Q13.3 13.3 14.5 6.5Z"
+    fill="var(--accent)"
+  ></path>
+  <circle cx="22.6" cy="22.6" r="2.4" fill="var(--night-ink)"></circle>
+</svg>

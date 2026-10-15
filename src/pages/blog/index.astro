@@ -1,0 +1,39 @@
+---
+import PostCard from '@/components/podcast/PostCard.astro';
+import PageHero from '@/components/ui/PageHero.astro';
+import Pagination from '@/components/ui/Pagination.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { breadcrumbs } from '@/lib/schema';
+import { getPosts, postsPageHref, postsPageSize } from '@/lib/podcast';
+
+const posts = await getPosts();
+const total = Math.max(1, Math.ceil(posts.length / postsPageSize));
+---
+
+<BaseLayout
+  title="Blog"
+  description="Crónicas de humor do Azar Cósmico: textos com o mesmo espírito do podcast, para ler ao ritmo próprio."
+  structuredData={{
+    '@context': 'https://schema.org',
+    ...breadcrumbs([
+      { name: 'Início', href: '/' },
+      { name: 'Blog', href: '/blog/' },
+    ]),
+  }}
+>
+  <PageHero
+    eyebrow={`${posts.length} crónicas`}
+    title="Crónicas de humor para"
+    highlight="ler sem pressas."
+    text="Para além de uma voz agradável, qualidade na escrita: os textos do Azar Cósmico sobre o quotidiano, a atualidade e o absurdo."
+  />
+
+  <section class="shell mt-16 sm:mt-20" aria-label="Crónicas">
+    <div class="grid gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+      {posts.slice(0, postsPageSize).map((post, index) => (
+        <PostCard post={post} eager={index < 2} headingLevel="h2" />
+      ))}
+    </div>
+    <Pagination current={1} total={total} hrefFor={postsPageHref} />
+  </section>
+</BaseLayout>
