@@ -5,7 +5,7 @@ export interface NavLink {
 
 export const siteConfig = {
   name: 'Azar Cósmico',
-  title: 'Azar Cósmico — podcast de comédia, improviso e cultura',
+  title: 'Azar Cósmico — podcast de comédia, improviso e cultura de João Guilherme Matos',
   description:
     'Azar Cósmico é um podcast onde João Guilherme Matos funde entretenimento e cultura, abordando tópicos com um estilo muito próprio e conversando com convidados num registo descontraído. Novos episódios aos domingos, quinzenalmente.',
   siteUrl: 'https://www.azarcosmico.com',

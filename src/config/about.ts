@@ -2,14 +2,14 @@ export const about = {
   eyebrow: 'Sobre',
   title: 'Entretenimento e cultura com',
   highlight: 'estilo muito próprio.',
-  text: 'Azar Cósmico começou por ser um podcast de comédia, improviso e cultura. Entretanto expandiu-se para um blog — a ideia é mostrar que para além de uma voz agradável, também há qualidade na escrita.',
+  text: 'Azar Cósmico começou por ser um podcast de comédia, improviso e cultura. Entretanto expandiu-se para um blog: a ideia é mostrar que para além de uma voz agradável, também há qualidade na escrita.',
   portraitAlt: 'Capa do podcast Azar Cósmico',
   sections: [
     {
       title: 'O podcast',
       paragraphs: [
-        'Azar Cósmico é um podcast onde João Guilherme Matos funde entretenimento e cultura, abordando tópicos com um estilo muito próprio e conversando com convidados num registo descontraído. Novos episódios aos domingos, quinzenalmente, com clips das conversas no YouTube.',
-        'Os temas vão do cinema ao xadrez, da universidade às redes sociais, passando por óscares, Eurovisão, videojogos e física — sempre com humor e sem cerimónias.',
+        'Azar Cósmico é um podcast onde eu — João Guilherme Matos — procuro fundir entretenimento e cultura, abordando tópicos com um estilo muito próprio e conversando com convidados num registo descontraído. Novos episódios aos domingos, quinzenalmente, com clips das conversas no YouTube.',
+        'Os temas vão do cinema ao xadrez, da universidade às redes sociais, passando por óscares, Eurovisão, videojogos e física: sempre com humor e sem cerimónias.',
       ],
     },
     {

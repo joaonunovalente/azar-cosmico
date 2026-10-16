@@ -8,7 +8,7 @@ export const hero = {
   facts: [
     { value: '57', label: 'episódios publicados' },
     { value: '20', label: 'crónicas no blog' },
-    { value: '78', label: 'clips de vídeo disponíveis' },
+    { value: '78', label: 'vídeos no YouTube' },
   ],
 };
 
@@ -45,7 +45,7 @@ export const services = {
     {
       icon: 'pen-tool',
       title: 'Crónicas',
-      text: 'Textos de humor no blog, para ler ao ritmo próprio — da laranja assassina aos pleonasmos repetidos tautologicamente.',
+      text: 'Textos de humor no blog, para ler ao ritmo próprio: da laranja assassina aos pleonasmos repetidos tautologicamente.',
     },
     {
       icon: 'clapperboard',
