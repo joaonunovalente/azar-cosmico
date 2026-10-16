@@ -1,7 +1,9 @@
 ---
 import { render } from 'astro:content';
 import PostCard from '@/components/podcast/PostCard.astro';
+import ShareButtons from '@/components/podcast/ShareButtons.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { siteConfig } from '@/config/site';
 import { postSchema } from '@/lib/schema';
 import { formatDate, getPosts, type Post } from '@/lib/podcast';
 
@@ -24,6 +26,7 @@ interface Props {
 const { post, related } = Astro.props;
 const { title, description, date, image } = post.data;
 const { Content } = await render(post);
+const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
 ---
 
 <BaseLayout
@@ -63,6 +66,10 @@ const { Content } = await render(post);
         <span aria-hidden="true">·</span>
         <span>Por João Guilherme Matos</span>
       </div>
+
+      <div class="rise mt-8" style="--rise-step: 4">
+        <ShareButtons title={title} url={canonicalUrl} />
+      </div>
     </header>
 
     {image && (
@@ -81,6 +88,17 @@ const { Content } = await render(post);
         <Content />
       </div>
     </div>
+
+    <section class="shell mt-12 sm:mt-16" aria-labelledby="share-title">
+      <div class="max-w-3xl border-t border-line pt-8">
+        <h2 id="share-title" class="text-title">
+          Partilhar esta crónica
+        </h2>
+        <div class="mt-5">
+          <ShareButtons title={title} url={canonicalUrl} labelledBy="share-title" />
+        </div>
+      </div>
+    </section>
 
     {related.length > 0 && (
       <section class="shell mt-16 sm:mt-24" aria-labelledby="related-title">

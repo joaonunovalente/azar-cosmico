@@ -1,0 +1,147 @@
+---
+import Icon from '@/components/ui/Icon.astro';
+
+interface Props {
+  /** Título da crónica, usado no texto das partilhas. */
+  title: string;
+  /** URL absoluta e canónica da crónica. */
+  url: string;
+  /** Quando o bloco é antecedido por um heading visível, passa o seu `id`. */
+  labelledBy?: string;
+}
+
+const { title, url, labelledBy } = Astro.props;
+
+const encodedUrl = encodeURIComponent(url);
+const encodedTitle = encodeURIComponent(title);
+const encodedText = encodeURIComponent(`${title} ${url}`);
+
+const links = [
+  {
+    label: 'Partilhar no X',
+    href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
+    icon: 'social-twitter-x',
+  },
+  {
+    label: 'Partilhar no Facebook',
+    href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+    icon: 'social-facebook',
+  },
+  {
+    label: 'Partilhar no WhatsApp',
+    href: `https://wa.me/?text=${encodedText}`,
+    icon: 'social-whatsapp',
+  },
+  {
+    label: 'Partilhar no Telegram',
+    href: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`,
+    icon: 'social-telegram',
+  },
+  {
+    label: 'Partilhar no LinkedIn',
+    href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+    icon: 'social-linkedin',
+  },
+];
+---
+
+<div data-share-root data-share-url={url}>
+  <ul
+    aria-label={labelledBy ? undefined : 'Partilhar esta crónica'}
+    aria-labelledby={labelledBy}
+    class="flex flex-wrap items-center gap-2.5"
+  >
+    {links.map(({ label, href, icon }) => (
+      <li>
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener"
+          aria-label={label}
+          class="grid size-11 place-items-center rounded-full border border-line bg-surface text-body transition hover:border-ink hover:text-ink"
+        >
+          <Icon name={icon} class="size-5" />
+        </a>
+      </li>
+    ))}
+    <li data-needs-js>
+      <button
+        type="button"
+        data-copy-button
+        aria-label="Copiar ligação"
+        class="grid size-11 cursor-pointer place-items-center rounded-full border border-line bg-surface text-body transition hover:border-ink hover:text-ink"
+      >
+        <span data-copy-icon class="grid place-items-center">
+          <Icon name="copy" class="size-5" />
+        </span>
+      </button>
+    </li>
+  </ul>
+  <p data-copy-feedback class="mt-3 hidden text-sm text-muted" role="status">
+    Ligação copiada.
+  </p>
+</div>
+
+<script is:inline>
+  (() => {
+    const init = (root) => {
+      if (root.dataset.shareReady === 'true') return;
+      root.dataset.shareReady = 'true';
+      const button = root.querySelector('[data-copy-button]');
+      const feedback = root.querySelector('[data-copy-feedback]');
+      if (!button) return;
+      const originalLabel = button.getAttribute('aria-label') ?? 'Copiar ligação';
+      let timer = 0;
+
+      const showFeedback = async () => {
+        const url = root.dataset.shareUrl ?? window.location.href;
+        let copied = false;
+        try {
+          await navigator.clipboard.writeText(url);
+          copied = true;
+        } catch {
+          try {
+            const field = document.createElement('textarea');
+            field.value = url;
+            field.setAttribute('readonly', '');
+            field.style.position = 'fixed';
+            field.style.opacity = '0';
+            document.body.appendChild(field);
+            field.select();
+            copied = document.execCommand('copy');
+            field.remove();
+          } catch {
+            copied = false;
+          }
+        }
+
+        if (!copied) {
+          window.prompt('Copia a ligação:', url);
+          return;
+        }
+
+        button.setAttribute('aria-label', 'Ligação copiada!');
+        feedback?.classList.remove('hidden');
+        window.clearTimeout(timer);
+        timer = window.setTimeout(() => {
+          button.setAttribute('aria-label', originalLabel);
+          feedback?.classList.add('hidden');
+        }, 2000);
+      };
+
+      button.addEventListener('click', () => {
+        void showFeedback();
+      });
+    };
+
+    const scan = () => {
+      document.querySelectorAll('[data-share-root]').forEach(init);
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', scan, { once: true });
+    } else {
+      scan();
+    }
+  })();
+</script>
