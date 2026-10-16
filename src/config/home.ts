@@ -61,3 +61,9 @@ export const closing = {
   highlight: 'Segue o podcast.',
   text: 'O Azar Cósmico está nas plataformas habituais: Spotify, Apple Podcasts, YouTube e RSS. Novos episódios aos domingos, quinzenalmente.',
 };
+
+export const reviews = {
+  eyebrow: 'Reviews',
+  title: 'O que dizem os ouvintes',
+  text: 'Opiniões dos ouvintes nas várias plataformas de podcasts.',
+};

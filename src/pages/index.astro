@@ -1,5 +1,6 @@
 ---
 import Hero from '@/components/home/Hero.astro';
+import Reviews from '@/components/home/Reviews.astro';
 import Services from '@/components/home/Services.astro';
 import EpisodeCard from '@/components/podcast/EpisodeCard.astro';
 import PostCard from '@/components/podcast/PostCard.astro';
@@ -7,10 +8,11 @@ import Icon from '@/components/ui/Icon.astro';
 import SectionHead from '@/components/ui/SectionHead.astro';
 import { episodes as episodesConfig, posts as postsConfig } from '@/config/home';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getEpisodes, getPosts } from '@/lib/podcast';
+import { getEpisodes, getPosts, getReviews } from '@/lib/podcast';
 
 const episodes = (await getEpisodes()).slice(0, episodesConfig.limit);
 const posts = (await getPosts()).slice(0, postsConfig.limit);
+const reviews = await getReviews();
 ---
 
 <BaseLayout>
@@ -50,4 +52,6 @@ const posts = (await getPosts()).slice(0, postsConfig.limit);
   </section>
 
   <Services />
+
+  <Reviews items={reviews} />
 </BaseLayout>

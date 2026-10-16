@@ -3,6 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 export type Episode = CollectionEntry<'episodes'>;
 export type Post = CollectionEntry<'posts'>;
 export type Video = CollectionEntry<'videos'>;
+export type Review = CollectionEntry<'reviews'>;
 
 export const episodesPageSize = 9;
 export const postsPageSize = 9;
@@ -30,6 +31,12 @@ export async function getPosts() {
 export async function getVideos() {
   const videos = await getCollection('videos');
   return videos.sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date));
+}
+
+/** All listener reviews, newest first. */
+export async function getReviews() {
+  const reviews = await getCollection('reviews');
+  return reviews.sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date));
 }
 
 const dateFormatter = new Intl.DateTimeFormat('pt-PT', {

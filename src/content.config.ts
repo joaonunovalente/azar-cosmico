@@ -37,4 +37,16 @@ const videos = defineCollection({
   }),
 });
 
-export const collections = { episodes, posts, videos };
+const reviews = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/reviews' }),
+  schema: z.object({
+    title: z.string(),
+    quote: z.string(),
+    author: z.string(),
+    source: z.string().default('Apple Podcasts'),
+    rating: z.number().int().min(1).max(5).default(5),
+    date: z.string(),
+  }),
+});
+
+export const collections = { episodes, posts, videos, reviews };

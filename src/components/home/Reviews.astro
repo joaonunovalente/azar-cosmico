@@ -1,0 +1,178 @@
+---
+import Icon from '@/components/ui/Icon.astro';
+import SectionHead from '@/components/ui/SectionHead.astro';
+import { reviews } from '@/config/home';
+import type { Review } from '@/lib/podcast';
+
+interface Props {
+  items: Review[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="shell mt-28 sm:mt-36" aria-labelledby="reviews-title" data-reviews>
+  <SectionHead id="reviews-title" eyebrow={reviews.eyebrow} title={reviews.title} text={reviews.text}>
+    <div class="flex gap-2" data-needs-js>
+      <button type="button" class="btn btn-ghost btn-sm" data-reviews-prev aria-label="Ver reviews anteriores">
+        <Icon name="arrow-left" class="size-4" />
+      </button>
+      <button type="button" class="btn btn-ghost btn-sm" data-reviews-next aria-label="Ver reviews seguintes">
+        <Icon name="arrow-right" class="size-4" />
+      </button>
+    </div>
+  </SectionHead>
+
+  <div class="mt-12">
+    <ul
+      class="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-6 pb-2"
+      data-reviews-track
+      tabindex="0"
+      role="region"
+      aria-roledescription="carrossel"
+      aria-label="Reviews de ouvintes"
+    >
+      {items.map((review) => (
+        <li class="w-full shrink-0 snap-start sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
+          <figure class="flex h-full flex-col rounded-card border border-line bg-surface p-7">
+            <p class="flex gap-1" role="img" aria-label={`${review.data.rating} em 5 estrelas`}>
+              {Array.from({ length: review.data.rating }).map(() => (
+                <Icon name="star" class="size-4" />
+              ))}
+            </p>
+            <h3 class="mt-6 text-title">{review.data.title}</h3>
+            <blockquote class="mt-3 flex-1">
+              <p class="text-body">“{review.data.quote}”</p>
+            </blockquote>
+            <figcaption class="mt-6 text-sm text-muted">
+              {review.data.author} · {review.data.source}
+            </figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
+    <div
+      class="mt-8 flex justify-center gap-2"
+      data-needs-js
+      data-reviews-dots
+      role="group"
+      aria-label="Escolher review"
+    ></div>
+  </div>
+</section>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll<HTMLElement>('section[data-reviews]').forEach((section) => {
+    const track = section.querySelector<HTMLElement>('[data-reviews-track]');
+    const prev = section.querySelector<HTMLButtonElement>('[data-reviews-prev]');
+    const next = section.querySelector<HTMLButtonElement>('[data-reviews-next]');
+    const dotsWrap = section.querySelector<HTMLElement>('[data-reviews-dots]');
+    if (!track || !prev || !next || !dotsWrap) return;
+
+    const cards = Array.from(track.querySelectorAll<HTMLElement>(':scope > li'));
+    if (cards.length === 0) return;
+
+    const dots = cards.map((card, index) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'reviews-dot';
+      dot.setAttribute('aria-label', `Ir para a review ${index + 1}`);
+      dot.addEventListener('click', () => {
+        track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+      dotsWrap.appendChild(dot);
+      return dot;
+    });
+
+    const step = () => {
+      const first = cards[0];
+      const second = cards[1];
+      if (!first) return track.clientWidth;
+      if (!second) return first.offsetWidth;
+      return second.offsetLeft - first.offsetLeft;
+    };
+
+    const update = () => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      prev.disabled = track.scrollLeft <= 0;
+      next.disabled = track.scrollLeft >= maxScroll - 1;
+
+      let active = 0;
+      let closest = Number.POSITIVE_INFINITY;
+      cards.forEach((card, index) => {
+        const distance = Math.abs(card.offsetLeft - track.offsetLeft - track.scrollLeft);
+        if (distance < closest) {
+          closest = distance;
+          active = index;
+        }
+      });
+      dots.forEach((dot, index) => {
+        const selected = index === active;
+        dot.setAttribute('aria-current', selected ? 'true' : 'false');
+        dot.classList.toggle('is-active', selected);
+      });
+    };
+
+    prev.addEventListener('click', () => {
+      track.scrollBy({ left: -step(), behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+    next.addEventListener('click', () => {
+      track.scrollBy({ left: step(), behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+
+    let ticking = false;
+    track.addEventListener(
+      'scroll',
+      () => {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(() => {
+          update();
+          ticking = false;
+        });
+      },
+      { passive: true },
+    );
+    window.addEventListener('resize', update);
+
+    update();
+  });
+</script>
+
+<style>
+  .reviews-dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 999px;
+    background: var(--line-strong);
+    transition:
+      background-color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .reviews-dot:hover {
+    background: var(--muted);
+  }
+
+  .reviews-dot.is-active {
+    background: var(--ink);
+    transform: scale(1.15);
+  }
+
+  .reviews-dot[aria-current='true'] {
+    background: var(--ink);
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reviews-dot {
+      transition: none;
+    }
+  }
+</style>

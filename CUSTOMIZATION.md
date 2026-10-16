@@ -29,7 +29,7 @@ The logomark is [src/components/ui/Logomark.astro](./src/components/ui/Logomark.
 
 ## Homepage
 
-Built in [src/pages/index.astro](./src/pages/index.astro) with sections in [src/components/home](./src/components/home) and copy in [src/config/home.ts](./src/config/home.ts): hero, episodes, posts, services, and closing panel.
+Built in [src/pages/index.astro](./src/pages/index.astro) with sections in [src/components/home](./src/components/home) and copy in [src/config/home.ts](./src/config/home.ts): hero, episodes, posts, services, reviews, and closing panel.
 
 The closing panel appears above the footer on every page except legal pages and 404. Passing `closing={false}` to `BaseLayout` hides it.
 
@@ -51,6 +51,23 @@ image: ''
 ```
 
 Posts ([src/content/posts](./src/content/posts)) use `title`, `description`, `date`, `image`. Videos ([src/content/videos](./src/content/videos)) use `title`, `description`, `date`, `youtubeId`, `thumbnail`. Schemas in [src/content.config.ts](./src/content.config.ts).
+
+## Reviews
+
+Each listener review is a Markdown file in [src/content/reviews](./src/content/reviews), shown newest-first in the homepage carousel (`Reviews.astro`, after the services section):
+
+```yaml
+---
+title: Espetacularmente espetacular
+quote: Estás à procura de um podcast para ouvires enquanto fazes as mil e uma coisas...
+author: ovos_moles
+source: Apple Podcasts
+rating: 5
+date: '2020-12-13'
+---
+```
+
+`source` defaults to `Apple Podcasts` and `rating` (1–5) defaults to `5`. Section copy (eyebrow, title, text) lives in `reviews` in [src/config/home.ts](./src/config/home.ts).
 
 Listing, sorting, and pt-PT formatting helpers in [src/lib/podcast.ts](./src/lib/podcast.ts). The episode index is paginated (`/episodios/pagina/2/`).
 
