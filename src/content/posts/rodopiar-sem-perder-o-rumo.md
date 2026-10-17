@@ -18,5 +18,3 @@ Por falar em Oeste, está na altura de pousar o olhar sobre a terra dos cowboys 
 Já o Este (e não esse ou aquele) anda ocupado a ser palco de guerra e atrocidades. Costumava indicar o lado onde nascia o Sol, mas agora está permanentemente mergulhado nas trevas. Mas atenção, não são só pessoas a tentar escapar do terror de Este; até os cereais têm dificuldade em fugir para virem ter à minha tigela ao pequeno-almoço. Meu rico Nestum!
 
 Assim sendo, qual dos pontos cardeais venceu esta batalha da rosa-dos-ventos, sendo coroado como o ponto cardeal mais porreirolas? Confesso que este exercício escrito talvez tenha sido inconclusivo, mas o processo criativo vai demasiado longo para o texto não ser publicado. A minha bússola moral encontra-se calibrada e não poderia deixar que a minha professora de geografia tivesse rodopiado em vão.
-
-Se gostaste desta crónica e queres acompanhar o meu trabalho, podes espreitar o meu canal de Youtube ou subscrever a minha newsletter ! Obrigado :)

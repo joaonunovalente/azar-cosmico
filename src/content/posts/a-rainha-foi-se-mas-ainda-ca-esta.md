@@ -16,5 +16,3 @@ Não obstante, Portugal decretou 3 dias de luto nacional e fê-lo 7 dias depois 
 A transferência de poder da coroa ocorreu suavemente, com o rei Carlos lll (devia ser Charles) a assumir as rédeas da situação. Diz-se que há que ter mãos firmes para garantir um reinado próspero. No entanto, os dedos de Carlos aparentam ser salsichas acabadinhas de desenlatar. Por conseguinte, o novo rei até pode ser do Reino Unido, mas os seus dedos são de Frankfurt.
 
 É inegável que o mundo burocrático e institucional do Reino Unido tenha levado um valente safanão. Em menos de 1 semana, os britânicos foram da dupla clássica de Boris Johnson com a sua majestade Isabel Segunda de Seu Nome, para a dupla mais verdinha de Liz Truss com o rei Carlos Trilogia. Isto é o equivalente a estarmos habituados a beber Coca-Cola e de repente, sem qualquer ato que se assemelhe a um aviso, espetarem-nos com uma Pepsi pela goela abaixo. O mundo não está preparado para estas mudanças radicais.
-
-Se gostaste desta crónica e queres acompanhar o meu trabalho, podes subscrever a minha newsletter ! Obrigado :)

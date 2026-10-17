@@ -14,5 +14,3 @@ Entro logo a abrir com uma irritação clássica: mosquitos que, por algum motiv
 Falo também de um bom método para estabelecer amizades e de decapitar peixes (transição brusca, mas com um golpe de rins aguenta-se), com o benefício da ciência em mente.
 
 Após a aventura com o bisturi, recomendo um filme que chegou à Netflix há pouco tempo, o ‘Trial of the Chicago Seven’ ou ‘Os 7 de Chicago’. Escrito e realizado por Aaron Sorkin e com participações de mas não limitadas a Joseph Gordon-Levitt, Eddie Redmayne, Sacha Baron Cohen, Yahya Abdul-Mateen II e Michael Keaton, estamos perante um cocktail cinematográfico de qualidade.
-
-Quanto ao site/blog/quartel-general de conteúdos que referi, basta clicarem em Azar Cósmico .

@@ -16,5 +16,3 @@ Ainda que só 1 caso fosse 1 caso a mais, muita tinta correu acerca das declara�
 Voltando ao tópico dos pecados da Igreja, não compreendo a lógica de uma instituição corrompida não pagar impostos, por exemplo. Quer dizer, não paga IMI; mas paga IVA quando vai comprar vinho ao Continente. A História revela que, dentro da Igreja, existiram os monges copistas, autênticas impressoras humanas encarregadas de preservar o conhecimento literário. Várias prensas de Gutenberg e uns computadores mais tarde, os monges deixaram de ser copistas e são hoje chupistas.
 
 Jesus declarou somente “deixai vir a mim as criancinhas” e não a versão alargada e preferida dos padres ‘deixai vir a mim as criancinhas para lhes fazer festinhas’. Não os perdoais Senhor, que eles sabem exatamente o que fazem. Isto não vai lá com perdão, mas a solução também começa por p e termina em ão . Deixo-vos chegar lá sozinhos.
-
-Se gostaste desta crónica e queres acompanhar o meu trabalho, podes subscrever a minha newsletter ! Obrigado :)

@@ -14,7 +14,3 @@ Olá, malta fixe! O convidado de hoje é António Fróis, Mestre Internacional d
 Os temas abordados nesta amigável conversa incluem, mas não se limitam a: ver o xadrez como algo psicológico que vai para além do cálculo puro, subjetividade dos algoritmos, motivação para António Fróis começar a jogar xadrez, peripécias na Holanda, decisão de ser profissional de xadrez, impacto do computador na preparação de jogos, suspeita sobre o que aconteceu em 1999 entre Kasparov e Deep Blue (computador da IBM), Match Fischer – Spassky, história de vida de Bobby Fischer, melhor jogador de xadrez de sempre, Magnus Carlsen vs Hans Niemann, melhor história de batota de sempre, processo mental que precede a vitória no campeonato da europa de veteranos, partir costelas nos carrinhos de choque (num plano puramente hipotético), espírito de grupo no Clube dos Galitos, jogar matraquilhos, série Gambito de Dama da Netflix, atirar peças ao adversário com mau perder, impacto do ELO na modalidade, Match Karpov – Kasparov em que 1 deles fica com cara doente tipo prisioneiro, roubo num autocarro com velhinha aflita, Guerra dos Tronos, 25 de Abril e a novidade dos debates, peripécias em Luanda e um momento muito especial no fim.
 
 Obrigado por teres espreitado o Azar Cósmico e espero encontrar-te por aqui no próximo episódio! Até já!
-
-Blog com Crónicas de Humor: Azar Cósmico
-
-Newsletter Semanal: Boletim que Só Tu Sabes

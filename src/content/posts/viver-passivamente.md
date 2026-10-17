@@ -16,5 +16,3 @@ Num concerto, a malta paga bilhete para vibrar na primeira fila com a banda. Mas
 Analogamente, uma situação muito semelhante ocorre nas peças de teatro infantil da escola primária. Quando os pequenotes estão a dar os primeiros passos no mundo da representação e se encontram a explodir de energia cénica, olham para a plateia numa tentativa de encontrar os pais. E encontram! Os pais são o Samsung Galaxy S10 e o iPhone 13. Eu sei, parece chocante imaginar um casamento entre a Samsung e a Apple, mas a verdade é que as crianças apenas conseguem ver a câmara traseira do smartphone das várias pessoas presentes.
 
 Algures pelo caminho da reflexão, esqueci-me que estava a passear. Fui contra uma pessoa. A minha sorte foi ela estar com o telemóvel na mão e a cara no telemóvel. Foi mais fácil atribuir as culpas do embate. Afinal, foi a pessoa que foi contra mim.
-
-Se gostaste desta crónica e queres acompanhar o meu trabalho, podes espreitar o meu canal de Youtube ou subscrever a minha newsletter ! Obrigado :)

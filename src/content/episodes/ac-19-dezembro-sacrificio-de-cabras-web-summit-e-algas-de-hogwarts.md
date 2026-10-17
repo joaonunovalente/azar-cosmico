@@ -10,5 +10,3 @@ image: "https://media.redcircle.com/images/2020/12/5/16/581b7aa5-c8c0-4d0f-a595-
 ---
 
 Um episódio relativamente caótico, pois estava ligeiramente cansado, confesso. Mas ainda mandei uns bitaites dignos. Entre eles, update do no shave, consistência de marketing do Ambrósio, Web Summit e dor de não a aproveitar no seu esplendor, feitiços com algas, aluno mamado na aula e música Red Right Hand. O mítico ep 20 é já para a semana, por isso show some love que até lhe dou forte nos anglo-saxonismos. Peace!
-
-Quartel General de Conteúdos incluindo Blog com Crónicas: https://www.azarcosmico.com

@@ -16,5 +16,3 @@ O meu momento favorito desta parolice disfarçada de ato nobre foi quando a Cris
 A Tina Ferreira acrescenta ainda que viu uma fotografia de Nossa Senhora nos seus sapatos, declarando que é um sinal divino. Discordo. Isto indica é um sinal de desarrumação. Para além disso, sou do tempo em que Nossa Senhora aparecia a fazer cucu atrás das árvores aos pastorinhos. Querem agora que acredite que Nossa Senhora ia gastar nova aparição nos sapatos de uma apresentadora de televisão, também ela já gasta? Sou cético.
 
 A vergonha alheia do Cristina Talks não alcançou o seu fim sem a Cristina chamar a palco o presidente da câmara de Lisboa Carlos Moedas, introduzindo-o como “o menino Carlos”. Nunca me senti tão Gepetto para com estes Pinóquios. Também nunca me apeteceu tanto lavar os olhos com lixívia. É a vida. Já que a Cristina Ferreira vai fazer digressão do Cristina Talks, sugiro a alteração do nome do evento para o factual Cristina Shouts ou o esperançoso Cristina Speechless. É-me indiferente, não estou assim tão interessado nisto.
-
-Se apreciaste esta crónica, podes apoiar o meu trabalho partilhando-a com um amigo! Eis o mais recente episódio do meu podcast:

@@ -10,5 +10,3 @@ image: "https://media.redcircle.com/images/2021/5/8/13/5ad76c92-ea2c-42d4-a7f6-f
 ---
 
 Episódio forte ao nível da narrativa pessoal. Os temas de hoje incluem, mas não se limitam a: uma aventura dentária em regime domiciliar, um senhor que monopoliza desinfetante, o regresso do Sr. Pimpão, uma rapariga super híper mega agradável (e com escoliose cerebral?) e ainda uma senhora super híper mega estupefacta com o processo de hidratação.
-
-Crónica do Horóscopo: https://www.azarcosmico.com/blog/o-primeiro-horoscopo-empiricamente-verificavel-e-100-factual/

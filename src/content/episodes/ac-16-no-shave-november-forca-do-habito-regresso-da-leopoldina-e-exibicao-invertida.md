@@ -10,5 +10,3 @@ image: "https://media.redcircle.com/images/2020/11/14/15/7304e608-1667-4997-afa5
 ---
 
 Palrei sobre barbas (No Shave November, baby face, lâmina) seguido de uma mini história acerca da potência da força do hábito. Devemos estar concentrados no que estamos a fazer, mas eu sou maroto e intransigente, ups. Depois de categorizar 2 tipos de criaturas no ecossistema ‘ginásio’ e respetivos sons produzidos, falo do comeback do ano da minha broa Leopoldina. Termino o episódio mencionando um conceito que a Netflix anda a mandar para o ar e agradecendo o feedback de umas coisitas. Obrigado e para a semana há mais eheh
-
-Quartel General de Conteúdos incluindo Blog com Crónicas: Azar Cósmico

@@ -14,7 +14,3 @@ Olá, malta magnífica! A convidada de hoje é a inigualável Inês Leite, licen
 (Pequena nota: apesar de já ter um gravador, os settings do objeto ficaram tensos e o áudio não está como eu quero. A partir do próximo episódio já me vão ouvir totalmente cristalino, as minhas humildes desculpas)
 
 Obrigado e até ao próximo episódio!
-
-Blog com Crónicas de Humor: Azar Cósmico
-
-Newsletter Semanal: Boletim que Só Tu Sabes
