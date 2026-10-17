@@ -52,8 +52,8 @@ export const navigation: NavLink[] = [
 ];
 
 export const legalLinks: NavLink[] = [
-  { label: 'Privacidade', href: '/privacidade/' },
-  { label: 'Termos', href: '/termos/' },
+  { label: 'Política de Privacidade', href: '/privacidade/' },
+  { label: 'Termos de Utilização', href: '/termos/' },
   { label: 'Registo de Alterações', href: '/registo-de-alteracoes/' },
   { label: 'Código-fonte', href: 'https://github.com/joaonunovalente/azar-cosmico' },
 ];

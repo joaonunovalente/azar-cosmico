@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { episode, eager = false, headingLevel: Heading = 'h3' } = Astro.props;
-const { title, description, date, episodeNumber, duration, image } = episode.data;
+const { title, description, date, episodeNumber, season, duration, image } = episode.data;
 ---
 
 <article class="episode-card reveal relative">
@@ -36,7 +36,8 @@ const { title, description, date, episodeNumber, duration, image } = episode.dat
     </span>
   </div>
   <div class="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
-    <span class="font-medium text-ink">EP {episodeNumber}</span>
+    <span class="text-muted">T {season}</span>
+    <span class="font-medium text-ink"> EP {episodeNumber}</span>
     <span aria-hidden="true">·</span>
     <time datetime={date}>{formatDate(date)}</time>
     {duration && (
